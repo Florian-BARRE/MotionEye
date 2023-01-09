@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  nodered:
+   image: "ccrisan/motioneye:master-amd64"
+   container_name: motioneye
+   restart: always
+   user: root
+   ports:
+     - "8765:8765"
+   volumes:
+     - motion_eye_motion:/var/run/motion
+     - motion_eye_etc:/etc/motioneye
+     - motion_eye_lib:/var/lib/motioneye
+volumes:
+    motion_eye_motion:
+    motion_eye_etc:
+    motion_eye_lib:
